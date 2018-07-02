@@ -1,0 +1,16 @@
+[
+{
+  "modid": "thirdpersonmod",
+  "name": "Third Person Mod",
+  "description": "A BSD Licence Mod, To force the game into third person mode",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["ezterry"],
+  "credits": "A Simple mod requested by TandJ_21",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
