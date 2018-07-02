@@ -29,14 +29,27 @@ package com.ezrol.terry.minecraft.thirdperson;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import org.apache.logging.log4j.Logger;
 
-
+/**
+ * Proxy to separate actions on the dedicated server (ServerProxy) vs client (ClientProxy)
+ */
+@SuppressWarnings("WeakerAccess")
 public class CommonProxy {
     protected Logger mclogger;
 
+    /**
+     * Get the mod's logger instance
+     *
+     * @param log a logger to use
+     */
     public void setLogger(Logger log){
         mclogger = log;
     }
 
+    /**
+     * Run on mod init
+     *
+     * @param event mod init event
+     */
     public void init(FMLInitializationEvent event){
         //per side init, default do nothing
     }

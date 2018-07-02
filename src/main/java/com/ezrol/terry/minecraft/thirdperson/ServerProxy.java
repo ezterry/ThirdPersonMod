@@ -30,6 +30,7 @@ package com.ezrol.terry.minecraft.thirdperson;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import org.apache.logging.log4j.Level;
 
+@SuppressWarnings("unused")
 public class ServerProxy extends CommonProxy{
     public ServerProxy(){
     }

@@ -30,7 +30,9 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-
+/**
+ * Mod root class, with Mod.EventHandler logic
+ */
 @SuppressWarnings("unused,WeakerAccess")
 @Mod(modid = ThirdPersonMod.MODID, version = ThirdPersonMod.VERSION, name = ThirdPersonMod.NAME,
         dependencies = "required-after:forge@[14.23.4.2705,)",
@@ -44,11 +46,21 @@ public class ThirdPersonMod {
             serverSide = "com.ezrol.terry.minecraft.thirdperson.ServerProxy")
     private static CommonProxy proxy;
 
+    /**
+     * Give the log to our proxy
+     *
+     * @param event pre-init event
+     */
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         proxy.setLogger(event.getModLog());
     }
 
+    /**
+     * Call the proxy init
+     *
+     * @param event init event
+     */
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         proxy.init(event);

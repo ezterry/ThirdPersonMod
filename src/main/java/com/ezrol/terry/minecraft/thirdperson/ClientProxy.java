@@ -33,20 +33,42 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.FMLNetworkEvent;
 import org.apache.logging.log4j.Level;
 
+/**
+ * ClientProxy, implements the events used by the client
+ * For ThirdPersonMod this subscribes to ClientConnectedToServerEvent
+ * where we override the ingameGUI with our own instance that
+ * ensures we are never in first person view
+ */
+@SuppressWarnings("unused")
 public class ClientProxy extends CommonProxy{
+    /**
+     * Basic constructor
+     */
     public ClientProxy(){
     }
 
+    /**
+     * The init event, register to the EventBus
+     *
+     * @param event mod init event
+     */
     @Override
     public void init(FMLInitializationEvent event) {
         mclogger.log(Level.INFO,"install custom event on server start");
         MinecraftForge.EVENT_BUS.register(this);
     }
 
+    /**
+     * The ClientConnectedToServerEvent, inject the custom gui instance
+     *
+     * @param event the server event instance
+     */
     @SubscribeEvent
     @SuppressWarnings("unused")
     public void onServerConnection(FMLNetworkEvent.ClientConnectedToServerEvent event) {
         Minecraft mc = Minecraft.getMinecraft();
+
+        //noinspection ConstantConditions
         if(mc == null){
             mclogger.error("Unable to find Minecraft instance");
         }

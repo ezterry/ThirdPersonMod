@@ -37,11 +37,29 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.GuiIngameForge;
 
+/**
+ * A custom version of Forge's InGame Gui
+ * basically on renderOverlay ensure we are not in first person mode
+ * Otherwise render as usual
+ *
+ * If the user has a pumpkin however render the overlay if either in 3rd person or
+ * shoulder surfing (max mode+1 for the Shoulder Surfing Reloaded mod)
+ */
 public class CustomInGameGui extends GuiIngameForge {
+
+    /**
+     * Simply call our parent class with the mc instance
+     * @param mcIn
+     */
+    @SuppressWarnings("WeakerAccess")
     public CustomInGameGui(Minecraft mcIn){
         super(mcIn);
     }
 
+    /**
+     * Customization of overlay, most is passed to the super class but inject our logic first
+     * @param partialTicks tick count
+     */
     @Override
     public void renderGameOverlay(float partialTicks) {
         if(this.mc.gameSettings.thirdPersonView == 0){
@@ -58,6 +76,11 @@ public class CustomInGameGui extends GuiIngameForge {
         }
     }
 
+    /**
+     * A custom version of the pumpkin overlay used for third person view in this mod
+     * @param scaledRes the current resolution
+     */
+    @SuppressWarnings("WeakerAccess")
     protected void customPumpkinOverlay(ScaledResolution scaledRes)
     {
         GlStateManager.disableDepth();
