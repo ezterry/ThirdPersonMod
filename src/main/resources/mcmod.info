@@ -5,7 +5,7 @@
   "description": "A BSD Licence Mod, To force the game into third person mode",
   "version": "${version}",
   "mcversion": "${mcversion}",
-  "url": "",
+  "url": "https://minecraft.curseforge.com/projects/third-person-mod",
   "updateUrl": "",
   "authorList": ["ezterry"],
   "credits": "A Simple mod requested by TandJ_21",
